@@ -14,6 +14,10 @@
 class ParserController
 {
 
+	public $logger;
+	public $events;
+
+
 	public function __construct($args)
 	{
 
@@ -55,7 +59,6 @@ class ParserController
     // {{{ init_logger()
 
 	/*
-	 * Let this script run for as long as is necessary to finish.
      * @access public
      * @static
      * @since Method available since Release 0.7
@@ -494,7 +497,18 @@ class ParserController
 			 * Note that we *cannot* prepare the table name as an argument here.
 			 * PDO doesn't work that way.
 			 */
-			$sql = 'TRUNCATE ' . $table;
+			$sql = 'DELETE FROM ' . $table;
+
+			$statement = $this->db->prepare($sql);
+			$result = $statement->execute();
+
+			if ($result === FALSE)
+			{
+				$this->logger->message('Error in SQL: ' . $sql, 10);
+				die();
+			}
+
+			$sql = 'ALTER TABLE `' . $table . '` AUTO_INCREMENT = 1';
 
 			$statement = $this->db->prepare($sql);
 			$result = $statement->execute();
@@ -957,40 +971,25 @@ class ParserController
 		 * exec() is faster and more efficient.
 		 */
 
-		/*
-		 * Set a flag telling us that we may write files.
-		 */
-		$write_json = TRUE;
-		$write_text = TRUE;
-		$write_xml = TRUE;
-
-
-		if ($write_json === TRUE)
-		{
-			$this->logger->message('Creating code JSON ZIP file', 3);
-			$output = array();
-			exec('cd ' . $downloads_dir . '; zip -9rq code.json.zip code-json');
-		}
+		$this->logger->message('Creating code JSON ZIP file', 3);
+		$output = array();
+		exec('cd ' . $downloads_dir . '; zip -9rq code.json.zip code-json');
 
 		/*
 		 * Zip up all of the text into a single file.
 		 */
-		if ($write_text === TRUE)
-		{
-			$this->logger->message('Creating code text ZIP file', 3);
-			$output = array();
-			exec('cd ' . $downloads_dir . '; zip -9rq code.txt.zip code-text');
-		}
+
+		$this->logger->message('Creating code text ZIP file', 3);
+		$output = array();
+		exec('cd ' . $downloads_dir . '; zip -9rq code.txt.zip code-text');
+
 
 		/*
 		 * Zip up all of the XML into a single file.
 		 */
-		if ($write_xml === TRUE)
-		{
-			$this->logger->message('Creating code XML ZIP file', 3);
-			$output = array();
-			exec('cd ' . $downloads_dir . '; zip -9rq code.xml.zip code-xml');
-		}
+		$this->logger->message('Creating code XML ZIP file', 3);
+		$output = array();
+		exec('cd ' . $downloads_dir . '; zip -9rq code.xml.zip code-xml');
 
 		/*
 		 * Save dictionary as JSON.
@@ -1074,6 +1073,11 @@ class ParserController
 	 */
 	function export_structure($parent_id)
 	{
+		if(!$this->events->has('store_law'))
+		{
+			return TRUE;
+		}
+
 
 		/*
 		 * Define the location of the downloads directory.
@@ -1186,40 +1190,6 @@ class ParserController
 
 			if ($laws_result !== FALSE && $laws_statement->rowCount() > 0)
 			{
-
-				/*
-				 * Establish the path of our code JSON storage directory.
-				 */
-				$json_dir = $downloads_dir . 'code-json' . $url;
-				$this->mkdir($json_dir);
-
-				/*
-				 * Set a flag telling us that we may write JSON.
-				 */
-				$write_json = TRUE;
-
-				/*
-				 * Establish the path of our code text storage directory.
-				 */
-				$text_dir = $downloads_dir . 'code-text' . $url;
-				$this->mkdir($text_dir);
-
-				/*
-				 * Set a flag telling us that we may write text.
-				 */
-				$write_text = TRUE;
-
-				/*
-				 * Establish the path of our code XML storage directory.
-				 */
-				$xml_dir = $downloads_dir . 'code-xml' . $url;
-				$this->mkdir($xml_dir);
-
-				/*
-				 * Set a flag telling us that we may write XML.
-				 */
-				$write_xml = TRUE;
-
 				/*
 				 * Create a new instance of the Parser class, so that we have access to its
 				 * get_structure_labels() method.
@@ -1254,6 +1224,8 @@ class ParserController
 					$laws->config->get_metadata = TRUE;
 					$laws->config->get_references = TRUE;
 					$laws->config->get_related_laws = TRUE;
+					$laws->config->render_html = TRUE;
+
 
 					/*
 					 * Pass the requested section number to Law.
@@ -1270,222 +1242,10 @@ class ParserController
 
 					if ($law !== FALSE)
 					{
+						$args = array(&$law, &$downloads_dir, &$url);
+						$this->events->trigger('store_law', $args);
 
-						/*
-						 * Eliminate colons from section numbers, since some OSes can't handle colons in
-						 * filenames.
-						 */
-						$filename = str_replace(':', '_', $law->section_number);
 
-						/*
-						 * Store the JSON file.
-						 */
-						if ($write_json === TRUE)
-						{
-
-							$success = file_put_contents($json_dir . $filename . '.json', json_encode($law));
-							if ($success === FALSE)
-							{
-								$this->logger->message('Could not write law JSON files "' . $json_dir . $filename . '.json' . '"', 9);
-								break;
-							}
-							else
-							{
-								$this->logger->message('Wrote file "'. $json_dir . $filename . '.json' .'"', 1);
-							}
-
-						}
-
-						/*
-						 * Store the text file.
-						 */
-						if ($write_text === TRUE)
-						{
-
-							$success = file_put_contents($text_dir . $filename . '.txt', $law->plain_text);
-							if ($success === FALSE)
-							{
-								$this->logger->message('Could not write law text files "' . $text_dir . $filename . '.txt', $law->plain_text . '"', 9);
-								break;
-							}
-							else
-							{
-								$this->logger->message('Wrote file "'. $json_dir . $filename . '.txt' .'"', 1);
-							}
-
-						}
-
-						/*
-						 * Store the XML file.
-						 */
-						if ($write_xml === TRUE)
-						{
-
-							/*
-							 * We need to massage the $law object into matching the State Decoded
-							 * XML standard. The first step towards this is removing unnecessary
-							 * elements.
-							 */
-							unset($law->plain_text);
-							unset($law->structure_contents);
-							unset($law->next_section);
-							unset($law->previous_section);
-							unset($law->amendment_years);
-							unset($law->dublin_core);
-							unset($law->plain_text);
-							unset($law->section_id);
-							unset($law->structure_id);
-							unset($law->edition_id);
-							unset($law->full_text);
-							unset($law->formats);
-							unset($law->html);
-							$law->structure = $law->ancestry;
-							unset($law->ancestry);
-							$law->referred_to_by = $law->references;
-							unset($law->references);
-
-							/*
-							 * Encode all entities as their proper Unicode characters, save for the
-							 * few that are necessary in XML.
-							 */
-							$law = html_entity_decode_object($law);
-
-							/*
-							 * Quickly turn this into an XML string.
-							 */
-							$xml = new SimpleXMLElement('<law />');
-							object_to_xml($law, $xml);
-
-							$xml = $xml->asXML();
-
-							/*
-							 * Load the XML string into DOMDocument.
-							 */
-							$dom = new DOMDocument();
-							$dom->loadXML($xml);
-
-							/*
-							 * Simplify every reference, stripping them down to the cited sections.
-							 */
-							$referred_to_by = $dom->getElementsByTagName('referred_to_by');
-							if ( !empty($referred_to_by) && ($referred_to_by->length > 0) )
-							{
-								$referred_to_by = $referred_to_by->item(0);
-								$references = $referred_to_by->getElementsByTagName('unit');
-
-								/*
-								 * Iterate backwards through our elements.
-								 */
-								for ($i = $references->length; --$i >= 0;)
-								{
-
-									$reference = $references->item($i);
-
-									/*
-									 * Save the section number.
-									 */
-									$section_number = trim($reference->getElementsByTagName('section_number')->item(0)->nodeValue);
-
-									/*
-									 * Create a new element, named "reference," which contains the only
-									 * the section number.
-									 */
-									$element = $dom->createElement('reference', $section_number);
-									$reference->parentNode->insertBefore($element, $reference);
-
-									/*
-									 * Remove the "unit" node.
-									 */
-									$reference->parentNode->removeChild($reference);
-
-								}
-
-							}
-
-							/*
-							 * Simplify and reorganize every structural unit.
-							 */
-							$structure = $dom->getElementsByTagName('structure');
-							if ( !empty($structure) && ($structure->length > 0) )
-							{
-								$structure = $structure->item(0);
-
-								$structural_units = $structure->getElementsByTagName('unit');
-
-								/*
-								 * Iterate backwards through our elements.
-								 */
-								for ($i = $structural_units->length; --$i >= 0;)
-								{
-
-									$unit = $structural_units->item($i);
-
-									/*
-									 * Add the "level" attribute.
-									 */
-									$label = trim(strtolower($unit->getAttribute('label')));
-									$level = $dom->createAttribute('level');
-									$level->value = array_search($label, $parser->get_structure_labels()) + 1;
-
-									$unit->appendChild($level);
-
-									/*
-									 * Add the "identifier" attribute.
-									 */
-									$identifier = $dom->createAttribute('identifier');
-									$identifier->value = trim($unit->getElementsByTagName('identifier')->item(0)->nodeValue);
-									$unit->appendChild($identifier);
-
-									/*
-									 * Remove the "id" attribute from <unit>.
-									 */
-									$unit->removeAttribute('id');
-
-									/*
-									 * Store the name of this structural unit as the contents of <unit>.
-									 */
-									$unit->nodeValue = trim($unit->getElementsByTagName('name')->item(0)->nodeValue);
-
-									/*
-									 * Save these changes.
-									 */
-									$structure->appendChild($unit);
-
-								}
-
-							}
-
-							/*
-							 * Rename text units as text sections.
-							 */
-							$text = $dom->getElementsByTagName('text');
-							if (!empty($text) && ($text->length > 0))
-							{
-								$text = $text->item(0);
-								$text_units = $text->getElementsByTagName('unit');
-
-								/*
-								 * Iterate backwards through our elements.
-								 */
-								for ($i = $text_units->length; --$i >= 0;)
-								{
-									$text_unit = $text_units->item($i);
-									renameElement($text_unit, 'section');
-								}
-
-							}
-
-							/*
-							 * Save the cleaned-up XML to the filesystem.
-							 */
-							$success = file_put_contents($xml_dir . $filename . '.xml', $dom->saveXML());
-							if ($success === FALSE)
-							{
-								$this->logger->message('Could not write law XML files', 9);
-								break;
-							}
-
-						}
 
 					} // end the $law exists condition
 
@@ -1547,36 +1307,8 @@ class ParserController
 			/*
 			 * If the JSON directory doesn't exist, create it.
 			 */
-			$this->mkdir($this->downloads_dir . $data_dir);
+			mkdir_safe($this->downloads_dir . $data_dir);
 		}
-	}
-
-	public function mkdir($dir)
-	{
-
-			/*
-			 * If the directory doesn't exist, create it.
-			 */
-			if (!file_exists($dir))
-			{
-				/*
-				 * Build our directories recursively.
-				 * Don't worry about the mode, as our server's umask should handle
-				 * that for us.
-				 */
-				if(!mkdir($dir, 0777, true))
-				{
-					$this->logger->message('Cannot create directory "' . $dir . '"', 10);
-				}
-			}
-
-			/*
-			 * If we cannot write to the JSON directory, log an error.
-			 */
-			if (!is_writable($dir))
-			{
-				$this->logger->message('Cannot write to "' . $dir . '"', 10);
-			}
 	}
 
 	/**

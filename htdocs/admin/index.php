@@ -15,15 +15,6 @@
  */
 
 /*
- * Include the code with the functions that drive this parser.
- */
-
-/*
- * Log parser output.
- */
-$logger = new Logger(array('html' => TRUE));
-
-/*
  * Require that the user log in.
  */
 if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) ||
@@ -38,13 +29,19 @@ if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW']) ||
         <big>Wrong Username or Password</big>
         </body></html>';
     exit;
-    
+
 }
 
 /*
  * Create a new parser controller.
+ * Inject services such as logger and plugins.
  */
-$parser = new ParserController(array('logger' => $logger));
+$parser = new ParserController(
+	array(
+		'logger' => new Logger(array('html' => TRUE)),
+		'events' => new EventManager()
+	)
+);
 
 if (isset($_GET['noframe']))
 {
