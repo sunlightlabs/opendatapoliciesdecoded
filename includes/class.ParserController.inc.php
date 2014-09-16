@@ -1242,7 +1242,7 @@ class ParserController
 
 					if ($law !== FALSE)
 					{
-						$args = array(&$law, &$downloads_dir, &$url);
+						$args = array(&$law, $downloads_dir, $url);
 						$this->events->trigger('store_law', $args);
 
 
