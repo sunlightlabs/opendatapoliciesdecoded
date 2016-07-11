@@ -220,9 +220,10 @@ if (isset($struct->siblings))
  */
 if(strlen($structure_id) > 0)
 {
+/*.ucwords($struct->label).' '.$struct->identifier.' */
 
-	$body .= '<p>This is '.ucwords($struct->label).' '.$struct->identifier.' of the ' . LAWS_NAME
-		. ', titled “'.$struct->name.'.”';
+	$body .= '<p>These are the ' . LAWS_NAME
+		. ' for the jurisdiction of “'.$struct->name.'.”';
 
 	if (count((array) $structure) > 1)
 	{
@@ -245,7 +246,7 @@ if(strlen($structure_id) > 0)
 else
 {
 	$body .= '
-		<p>These are the fundamental units of the ' . LAWS_NAME . '.</p>';
+		<p>These are the documents that are apart of ' . LAWS_NAME . '.</p>';
 }
 
 /*
@@ -257,7 +258,7 @@ if (isset($struct->metadata))
 	if (isset($struct->metadata->child_laws) && ($struct->metadata->child_laws > 0) )
 	{
 
-		$body .= ' It contains ' . number_format($struct->metadata->child_laws) . ' laws';
+		$body .= ' It contains ' . number_format($struct->metadata->child_laws) . ' policies';
 		if (isset($struct->metadata->child_structures) && ($struct->metadata->child_structures > 0) )
 		{
 			$body .= ' divided across ' . number_format($struct->metadata->child_structures)
@@ -339,7 +340,7 @@ $laws = $struct->list_laws();
 if ($laws !== FALSE)
 {
 
-	$body .= ' It’s comprised of the following ' . count((array) $laws) . ' sections.</p>';
+	$body .= ' It’s comprised of the following ' . count((array) $laws) . ' policies.</p>';
 	$body .= '<dl class="title-list laws">';
 
 	foreach ($laws as $law)
@@ -392,7 +393,7 @@ $edition_data = $edition->find_by_id($struct->edition_id);
 $edition_list = $edition->all();
 if($edition_data && count($edition_list) > 1)
 {
-	$content->set('edition', '<p class="edition">This is the <strong>' . $edition_data->name . '</strong> edition of the code.  ');
+	$content->set('edition', '<p class="edition">This is the <strong>' . $edition_data->name . '</strong> edition of policies.  ');
 	if($edition_data->current)
 	{
 		$content->append('edition', 'This is the current edition.  ');
@@ -405,6 +406,8 @@ if($edition_data && count($edition_list) > 1)
 		$content->append('edition', 'It was last updated ' . date('M d, Y', strtotime($edition_data->last_import)) . '.  ');
 	}
 	$content->append('edition', '<a href="/editions/?from=' . $_SERVER['REQUEST_URI'] . '" class="edition-link">Browse all editions.</a></p>');
+
+	
 }
 $content->set('current_edition', $struct->edition_id);
 

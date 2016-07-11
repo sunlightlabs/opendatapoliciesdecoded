@@ -65,16 +65,18 @@ $content->set('body',
 					<p>Throughout the ' . LAWS_NAME . ', very specific legal definitions are
 					provided for terminology both specialized and mundane. If you don’t know which
 					words have special definitions, and what those definitions are, then you can’t
-					understand what a law <em>really</em> means. ' . SITE_TITLE . ' solves this
+					understand what a policy <em>really</em> means. ' . SITE_TITLE . ' solves this
 					problem neatly, by identifying every definition in the  ' . LAWS_NAME . ' and
-					providing a pop-up definition every time that a defined word appears.</p>
+					providing a pop-up definition every time that a defined word appears.
+                                        Definitions may come from different policies which helps you understand each
+                                        policy in a national context.</p>
 				</article>
 
 				<article class="abstract">
 					<h1>Bulk Downloads</h1>
-					<p>' . SITE_TITLE . ' isn’t just a pretty website—you can take the laws with
+					<p>' . SITE_TITLE . ' isn’t just a pretty website—you can take the policies with
 					you, too. On <a href="/downloads/">our downloads page</a> you can get copies
-					of all of the laws of ' . PLACE_NAME . ' in any format that you like, to do
+					of all of the open data policies in any format that you like, to do
 					whatever you like with. They’re available in formats meant for you to read
 					and in formats meant for software to read, too. If you’re a software developer,
 					you’ll love our API!</p>
