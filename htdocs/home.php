@@ -41,7 +41,7 @@ $content->set('body',
 			<section class="feature-content">
 				<hgroup>
 					<h1>Discover the ' . LAWS_NAME . '</h1>
-					<h2>The laws of ' . PLACE_NAME . ', for non-lawyers.</h2>
+					<h2>The ' . PLACE_NAME . ', for non-lawyers.</h2>
 				</hgroup>
 
 				<p>' . SITE_TITLE . ' provides the ' . LAWS_NAME . ' on one friendly website. Inline
@@ -62,7 +62,7 @@ $content->set('body',
 
 				<article class="abstract">
 					<h1>Inline Definitions</h1>
-					<p>Throughout the ' . LAWS_NAME . ', very specific legal definitions are
+					<p>Throughout the ' . LAWS_NAME . ', very specific definitions are
 					provided for terminology both specialized and mundane. If you don’t know which
 					words have special definitions, and what those definitions are, then you can’t
 					understand what a policy <em>really</em> means. ' . SITE_TITLE . ' solves this
