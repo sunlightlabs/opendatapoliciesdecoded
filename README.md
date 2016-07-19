@@ -29,5 +29,5 @@ Project documentation can be found at [docs.statedecoded.com](http://docs.stated
 Follow along on Twitter 
 
 ## Supported by
-Open Data Policies Decoded development was funded by the [Bloomberg Philanthropies] (http://www.bloomberg.org) [What Works Cities] (http://whatworkscities.bloomberg.org) program. 
+Open Data Policies Decoded development was funded by the [Bloomberg Philanthropies] (http://www.bloomberg.org) [What Works Cities] (http://whatworkscities.bloomberg.org) initiative. 
 Development of State Decoded (the software for which Open Data Policies Decoded software was based on) was funded by [the John S. and James L. Knight Foundation’s News Challenge](http://www.knightfoundation.org/grants/20110158/). 
