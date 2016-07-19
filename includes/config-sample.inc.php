@@ -28,7 +28,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . INCLUDE_PATH);
 /*
  * What is the title of the website?
  */
-define('SITE_TITLE', 'The State Decoded');
+define('SITE_TITLE', 'Open Data Policies Decoded');
 
 /*
  * Set the main site url.
