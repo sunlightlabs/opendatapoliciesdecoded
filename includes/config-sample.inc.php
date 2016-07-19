@@ -67,18 +67,18 @@ define('SITE_URL', $url);
 /*
  * What is the name of the place that these laws govern?
  */
-define('PLACE_NAME', 'State');
+define('PLACE_NAME', 'Open Data Policies');
 
 /*
  * What does this place call its laws?
  */
-define('LAWS_NAME', 'Code of State');
+define('LAWS_NAME', 'Open Data Policies');
 
 /*
  * What is the prefix that indicates a section? In many states, this is §, but in others it might be
  * "s".
  */
-define('SECTION_SYMBOL', '§');
+define('SECTION_SYMBOL', ' ');
 
 /*
  * Define the web root -- the directory in which index.php is found.
