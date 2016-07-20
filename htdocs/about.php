@@ -25,7 +25,7 @@ $content->set('page_title', 'About');
 
 $body = '
 <h2>Introduction</h2>
-<p>Open Data Policies Decoded is a non-profit, non-governmental, non-partisan implementation of <a href="http://www.statedecoded.com" target="_blank">The State Decoded</a> brought to you by the folks at the <a href="http://opengovfoundation.org">OpenGov Foundation</a>. The State Decoded is a free, open source project that provides a platform to display legal information in a friendly, accessible, modern fashion.</p>
+<p>Open Data Policies Decoded is a non-profit, non-governmental, non-partisan implementation of <a href="http://www.statedecoded.com" target="_blank">The State Decoded</a> brought to you by the folks at the <a href="http://opengovfoundation.org">OpenGov Foundation</a>. The State Decoded is a free, open source project that provides a platform to display legal information in a friendly, accessible, modern fashion. This instance was developed by the <a href="http://www.sunlightfoundation.com">Sunlight Foundation</a> with support from <a href="http://whatworkscities.bloomberg.org/">What Works Cities</a> via <a href="http://www.bloomberg.org/">Bloomberg Philanthropies</a>. </p>
 
 <h2>Beta Testing</h2>
 <p>Open Data Policies Decoded is currently in public beta, which is to say that the site is under active development, with known shortcomings, but it has reached a point where it would benefit from being used by the general public (who one hopes will likewise benefit from it.) While every effort is made to ensure that the data provided on Open Data Policies Decoded is accurate and up-to-date, it would be gravely unwise to rely on it for any matter of importance while it is in this beta testing phase.</p>
