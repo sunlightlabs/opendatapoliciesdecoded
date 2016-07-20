@@ -12,14 +12,14 @@ This is a pre-v1.0 release, which is to say that it isn't quite done. A capable 
 ## How do get my policy into The Open Data Policies Decoded?
 There are two ways.
 
-1. Natively, The Open Data Policies Decoded imports XML in [The State Decoded XML format](http://docs.statedecoded.com/xml-format.html). If you have your legal code as XML, you can adapt [the provided XSLT](https://github.com/statedecoded/state/blob/master/sample.xsl) to transform it into the proper format. Or if you don't have your legal code as XML, you can convert it into XML.
+1. Natively, Open Data Policies Decoded imports XML in [The State Decoded XML format](http://docs.statedecoded.com/xml-format.html). If you have your legal code as XML, you can adapt [the provided XSLT](https://github.com/statedecoded/state/blob/master/sample.xsl) to transform it into the proper format. Or if you don't have your legal code as XML, you can convert it into XML.
 1. Skip XML entirely and [modify the included parser](http://docs.statedecoded.com/parser.html) to import it in the format in which you have it.
 
 ## Project documentation
 Project documentation can be found at [docs.statedecoded.com](http://docs.statedecoded.com/), which explains how to install the software, configure it, customize it, use the API, and more. The documentation is stored [as a GitHub project](http://github.com/statedecoded/documentation/), with its content automatically published via [Jekyll](http://jekyllrb.com/), so in addition to reading the documentation, you are welcome to make improvements to it!
 
 ## How to help
-* Use Open Data Policies Decoded sites and share your feedback in the form of [filing issues](https://github.com/statedecoded/statesdecoded/issues/new)—suggestions for new features, notifications of bugs, etc.
+* Use Open Data Policies Decoded sites and share your feedback in the form of [filing issues](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues)—suggestions for new features, notifications of bugs, etc.
 * Write or edit documentation on [the wiki](https://github.com/Open Data Policiesdecoded/Open Data Policiesdecoded/wiki).
 * Read through [unresolved issues](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues) and comment on those on which you have something to add, to help resolve them.
 * Contribute code to [fix bugs or add features](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues).
