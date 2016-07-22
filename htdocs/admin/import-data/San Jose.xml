@@ -5,7 +5,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <law>
     <structure>
-        <unit label="section" identifier="sanjoseca," level="1">San Jose,CA</unit>
+        <unit label="section" identifier="sanjoseca" level="1">San Jose,CA</unit>
     </structure>
     <section_number>San Jose,CA(2016)</section_number> <!--citystateyear, no spaces-->
     <catch_line>Resolution (2016)</catch_line>
