@@ -5,7 +5,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <law>
     <structure>
-        <unit label="section" identifier="sandiegoca," level="1">San Diego,CA</unit>
+        <unit label="section" identifier="sandiegoca" level="1">San Diego,CA</unit>
     </structure>
     <section_number>San Diego,CA(2014)</section_number> <!--citystateyear, no spaces-->
     <catch_line>Legislation (2014)</catch_line>
