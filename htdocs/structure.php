@@ -309,10 +309,6 @@ if ($children !== FALSE)
 		$body .= '	<dt class="' . $row_class . '"><a href="' . $child->url . '"
 				data-identifier="' . $child->token . '"
 				data-api-url="' . $api_url . '"
-				>' . $child->identifier . '</a></dt>
-			<dd class="' . $row_class . '"><a href="' . $child->url . '"
-				data-identifier="' . $child->token . '"
-				data-api-url="' . $api_url . '"
 				>' . $child->name . '</a></dd>';
 
 		$counter++;
