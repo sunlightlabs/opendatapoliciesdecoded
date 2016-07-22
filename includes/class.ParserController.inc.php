@@ -728,7 +728,7 @@ class ParserController
 			/*
 			 * Iterate through the files.
 			 */
-			$this->logger->message('Importing the law files in the import-data directory', 3);
+			$this->logger->message('Importing the law files in the import-data directory', 5);
 
 			while ($section = $parser->iterate())
 			{
@@ -1887,8 +1887,6 @@ class ParserController
 		 * Save the resulting file.
 		 */
 		file_put_contents($sitemap_file, $xml->asXML());
-
-		$this->logger->message('Created sitemap.xml', 3);
 
 		$this->logger->message('Created sitemap.xml', 3);
 
