@@ -5,7 +5,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <law>
     <structure>
-        <unit label="section" identifier="southbendIN," level="1">South Bend,IN</unit>
+        <unit label="section" identifier="southbendIN" level="1">South Bend,IN</unit>
     </structure>
     <section_number>South Bend,IN (2013)</section_number> <!--citystateyear, no spaces-->
     <catch_line>Executive Order (2013)</catch_line>
