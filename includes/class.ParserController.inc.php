@@ -87,7 +87,7 @@ class ParserController
 		{
 			$this->downloads_url = '/downloads/';
 		}
-		$this->downloads_dir = realpath($this->downloads_dir);
+		$this->downloads_dir = realpath($this->downloads_dir) . '/';
 		
 	}
 
