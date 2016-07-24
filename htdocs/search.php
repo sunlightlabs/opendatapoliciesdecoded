@@ -332,22 +332,21 @@ else
 $sidebar .= '
 	<section class="info-box" id="boolean">
 		<h1>Writing Searches</h1>
-
-		<p>Generally, you can just write a few words to describe the law you’re looking for, such
-		as “<code>radar detectors</code>”, “<code>insurance agents</code>”, or
-		“<code>assault</code>” (leaving out the quotation marks).</p>
+		<p>Generally, you can just write a few words to describe the policy you’re looking for, such
+		as “<code>open data</code>”, “<code>chief innovation officer</code>”, or
+		“<code>portal</code>” (leaving out the quotation marks).</p>
 
 		<p>Also, advanced searches are supported, using the following terms:</p>
 
 		<ul>
 			<li><code>AND</code>: Requires the words or phrases before and after the
-				<code>AND</code>, like <code>radar AND vehicle</code>.</li>
+				<code>AND</code>, like <code>machine AND readable</code>.</li>
 			<li><code>+</code>: Requires that the following word or phrase be in the law, like
-				<code>insurance +agent</code>.</li>
+				<code>chief +technology</code>.</li>
 			<li><code>NOT</code>: Requires that the following word or phrase <em>not</em> be in the
-				law, like <code>assault NOT battery</code>.</li>
+				law, like <code>open NOT data</code>.</li>
 			<li><code>OR</code>: Requires that either word or phrase (or both words or phrases) be
-				in the law, like <code>assault OR battery</code>.</li>
+				in the law, like <code>open OR data</code>.</li>
 		</ul>
 	</section>';
 
