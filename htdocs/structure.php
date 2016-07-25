@@ -246,7 +246,7 @@ if(strlen($structure_id) > 0)
 else
 {
 	$body .= '
-		<p>These are the policies that are a part of the ' . LAWS_NAME . '.</p>';
+		<p>These are the juristictions that are a part of the ' . LAWS_NAME . '.</p>';
 }
 
 /*
