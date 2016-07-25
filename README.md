@@ -17,14 +17,14 @@ This is a pre-v1.0 release, which is to say that it isn't quite done. A capable 
   c) add it to our [raw text repository](https://github.com/sunlightpolicy/opendata/tree/master/open%20data%20policies%20raw%20text)
 
 2. Convert raw text into [The State Decoded XML format](http://docs.statedecoded.com/xml-format.html). If you have your policy as XML, you can adapt [the provided XSLT](https://github.com/statedecoded/state/blob/master/sample.xsl) to transform it into the proper format. Or if you don't have your policy as XML, you can convert it into XML. Use the [current policy XMLs](https://github.com/sunlightlabs/opendatapoliciesdecoded/tree/master/htdocs/admin/import-data) as an example. 
-  a) for the <unit label="section" identifier="amherstny" level="1">Amherst, NY</unit> Insert "citystate" in the identifier section as Lower caps ,no spaces or commas. (This is important as the import will fail if there are any any characters) and City, State after the level="1" text.  
-  b) for the <section_number>Amherst,NY(2014)</section_number> Insert the city,state(year) with no spaces
-  c) for the <catch_line>Legislation (2014)</catch_line> place the law type (Executive order, legislation, ordinance) and the year of adoption. 
-  d) Copy the body of the policy between the <text></text> tags. Add <p> before every line and a </p> after every line. 
-  e) between the  <history> </history> tags put notes/resolution/executive order/references and voting history in this area. (Adopted on, council votes, date etc). At insert the following information. 
+   <p>a) for the <unit label="section" identifier="amherstny" level="1">Amherst, NY</unit> Insert "citystate" in the identifier section as Lower caps ,no spaces or commas. (This is important as the import will fail if there are any any characters) and City, State after the level="1" text.  
+ <p> b) for the <section_number>Amherst,NY(2014)</section_number> Insert the city,state(year) with no spaces </p>
+ <p> c) for the <catch_line>Legislation (2014)</catch_line> place the law type (Executive order, legislation, ordinance) and the year of adoption. </p>
+ <p> d) Copy the body of the policy between the <text></text> tags. Add `<p>` before every line and a `</p>` after every line. 
+ <p> e) between the  <history> </history> tags put notes/resolution/executive order/references and voting history in this area. (Adopted on, council votes, date etc). At insert the following information. 
   Enacted: 2014; 
   Link: http://amherstny.iqm2.com/Citizens/FileOpen.aspx?Type=12&ID=1239&Inline=True;
-  Means: Legislation
+  Means: Legislation</p>
 
 3. Copy the XML File into the [/htdocs/admin/import-data folder] (https://github.com/sunlightlabs/opendatapoliciesdecoded/tree/master/htdocs/admin/import-data). You can [Submit an issue](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues/new) to request for a Sunlight Foundation Staff to do this for you. 
 
