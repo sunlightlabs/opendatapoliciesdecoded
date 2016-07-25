@@ -1,20 +1,16 @@
 # Open Data Policies Decoded
 
 ## What is The Open Data Policies Decoded?
-The Open Data Policies Decoded is a free, open source, web-based application to display open data policies online. Although it's meant for laws, it'll basically work for any structured legal text. It makes legal text searchable, interconnected, and machine-readable, adding an API, bulk downloads, and powerful semantic analysis tools. With The Open Data Policies Decoded, open data policies become vastly easier to read, more useful, and more open.
+Open Data Policies Decoded is a free, open source, web-based application to provide better access to open data policies from various jurisdictions (starting with US cities) online. It's a project based on ("forked from") The State Decoded, but differs in that rather than making all the laws within a jurisdiction more accessible, Open Data Policies Decoded provides this function for laws/policies related to open data across various jurisdictions. By utilizing State Decoded XML Documentation to structure open data policy text, Open Data Policy Decoded makes the language of open data reform more searchable, interconnected, and machine-readable, adding an API, bulk downloads, and semantic analysis tools.
 
+By providing easier to read, more useful, and more open open data policies our goal is to empower government officials and open government advocates alike to more easily mix and match the best aspects of various open data policies "re-forming" reforms and ultimately facilitating the spread of good policy ideas across jurisdictions in the true spirit of open source culture.
 
-## Is this ready for prime time?
-Quite nearly! The current release is being used in production on a half-dozen different sites, with [no serious bugs](https://github.com/statedecoded/statedecoded/issues?direction=desc&labels=Bug&milestone=2&state=open), and is certainly in good enough shape to be used on websites that aren't official, government-run repositories of the law. The only catch is that, until v1.0 is released (the next major release due out), there's no built-in upgrade path to new releases. That said, it's easy enough to install a new version and just re-import your site's legal code.
+## I'm a government official. How do I add my jurisdiction's open data policy?
 
-This is a pre-v1.0 release, which is to say that it isn't quite done. A capable developer who is comfortable with legal terminology should be able to wrangle her laws into this release with a couple of hours of work.
-
-## How do get my policy into The Open Data Policies Decoded?
-
-1. Convert your policy into raw text. 
-  1. Extract from PDF using your favorite PDF OCR tool. For Windows we like FreeOCR.
-  2. remove formatting but keep returns, lines, spaces. 
-  3. add it to our [raw text repository](https://github.com/sunlightpolicy/opendata/tree/master/open%20data%20policies%20raw%20text)
+1. Convert your open data policy into raw text. 
+  1. If you need to extract the text from a PDF we recommend using a e PDF OCR tool. For Windows we like FreeOCR.
+  2. Remove formatting but keep all returns and line information
+  3. Add  your policy it to our [raw text repository](https://github.com/sunlightpolicy/opendata/tree/master/open%20data%20policies%20raw%20text).[Submit a Github issue](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues/new) to for us to add it also. 
 
 2. Convert raw text into [The State Decoded XML format](http://docs.statedecoded.com/xml-format.html). If you have your policy as XML, you can adapt [the provided XSLT](https://github.com/statedecoded/state/blob/master/sample.xsl) to transform it into the proper format. Or if you don't have your policy as XML, you can convert it into XML. Use the [current policy XMLs](https://github.com/sunlightlabs/opendatapoliciesdecoded/tree/master/htdocs/admin/import-data) as an example. 
   1.for the `<unit label="section" identifier="amherstny" level="1">Amherst, NY</unit>` section insert "citystate" in the identifier section as Lower caps ,no spaces or commas. (This is important as the import will fail if there are any any characters) and City, State after the level="1" text. 
