@@ -7,14 +7,10 @@ By providing easier to read, more useful, and more _open_ open data policies our
 
 ## I'm a government official. How do I add my jurisdiction's open data policy?
 
-This is a pre-v1.0 release, which is to say that it isn't quite done. A capable developer who is comfortable with legal terminology should be able to wrangle her laws into this release with a couple of hours of work.
-
-## How do get my policy into The Open Data Policies Decoded?
-
-1. Convert your policy into raw text. 
-  1. Extract from PDF using your favorite PDF OCR tool. For Windows we like FreeOCR.
-  2. remove formatting but keep returns, lines, spaces. 
-  3. add it to our [raw text repository](https://github.com/sunlightpolicy/opendata/tree/master/open%20data%20policies%20raw%20text)
+1. Convert your open data policy into raw text. 
+  1. If you need to extract the text from a PDF we recommend using a e PDF OCR tool. For Windows we like FreeOCR.
+  2. Remove formatting but keep all returns and line information
+  3. Add  your policy it to our [raw text repository](https://github.com/sunlightpolicy/opendata/tree/master/open%20data%20policies%20raw%20text).[Submit a Github issue](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues/new) to for us to add it also. 
 
 2. Convert raw text into [The State Decoded XML format](http://docs.statedecoded.com/xml-format.html). If you have your policy as XML, you can adapt [the provided XSLT](https://github.com/statedecoded/state/blob/master/sample.xsl) to transform it into the proper format. Or if you don't have your policy as XML, you can convert it into XML. Use the [current policy XMLs](https://github.com/sunlightlabs/opendatapoliciesdecoded/tree/master/htdocs/admin/import-data) as an example. 
   1.for the `<unit label="section" identifier="amherstny" level="1">Amherst, NY</unit>` section insert "citystate" in the identifier section as Lower caps ,no spaces or commas. (This is important as the import will fail if there are any any characters) and City, State after the level="1" text. 
