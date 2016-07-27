@@ -95,15 +95,14 @@
 		<footer id="page_footer">
 			<div class="nest">
 				<p class="legalese">
-					All user-contributed content is owned by its authors. The laws are owned by the
-					people and, consequently, are not governed by copyright—so do whatever you want
-					with them. This website does not constitute legal advice. Only a lawyer can
-					provide legal advice. While every effort is made to keep all information
-					up-to-date and accurate, no guarantee is made as to its accuracy.
+				All user-contributed content is owned by its authors. The laws are owned by the
+				people and, consequently, are not governed by copyright—so do whatever you want
+				with them. This website does not constitute legal advice. While every effort is made to keep all information
+				up-to-date and accurate, no guarantee is made as to its accuracy. Our <a href=" http://sunlightfoundation.com/legal/privacy/">privacy policy</a>details how personally identfiable information that is collected on our websites is handled. Read our <a href=" http://sunlightfoundation.com/legal/terms/">terms of service.</a>
 				</p>
 				<p class="credits">
 					Powered by <a href="http://www.statedecoded.com/">The State Decoded</a><br />
-					Copyright 2011–2013 <a href="http://waldo.jaquith.org/">Waldo Jaquith</a><br />
+					This work by Sunlight Foundation, unless otherwise noted, is licensed under a <a href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0 United States License</a>
 					Design by <a href="http://www.meticulous.com">Meticulous</a>
 				</p>
 			</div> <!-- // .nest -->
