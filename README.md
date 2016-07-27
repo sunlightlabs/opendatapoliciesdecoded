@@ -37,8 +37,5 @@ Project documentation can be found at [docs.statedecoded.com](http://docs.stated
 * Contribute code to [fix bugs or add features](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues).
 * Comb through [existing code](https://github.com/sunlightlabs/opendatapoliciesdecoded) to clean it up—standardizing code formatting, adding docblocks, or editing/adding comments.
 
-## Keep up to date
-Follow along on Twitter 
-
 ## Supported by
  Open Data Policies Decoded was developed by the [Sunlight Foundation] (http://sunlightfoundation.com/) as part of our work on the [What Works Cities Initiative](http://whatworkscities.bloomberg.org/)
