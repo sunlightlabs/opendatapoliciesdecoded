@@ -39,4 +39,3 @@ Project documentation can be found at [docs.statedecoded.com](http://docs.stated
 
 ## Supported by
  Open Data Policies Decoded was developed by the [Sunlight Foundation] (http://sunlightfoundation.com/) as part of our work on the [What Works Cities Initiative](http://whatworkscities.bloomberg.org/)
-

@@ -139,6 +139,16 @@ $content->prepend('breadcrumbs', '<nav class="breadcrumbs"><ul class="steps-nav"
 $content->append('breadcrumbs', '</ul></nav>');
 
 /*
+ * Add temporary warning text saying this is a public beta.
+ */
+$content->append('warning', '<em>Warning: This is a public beta test of Open Data Policies Decoded.
+	Some information on specific policies may be incorrect.<br>
+	Please let us know about any inaccuracies by <a href="mailto:opendatadecoded@gmail.com" 
+	title="send us an email">emailing opendatadecoded@gmail.com</a> or 
+	<a href="https://github.com/sunlightlabs/opendatapoliciesdecoded/issues/new" 
+	title="submitting an issue on GitHub">submitting an issue on GitHub</a>.</em>');
+
+/*
  * If there is a prior section in this structural unit, provide a back arrow.
  */
 if (isset($law->previous_section))
@@ -173,7 +183,7 @@ else
 
 $content->set('heading', '<nav class="prevnext" role="navigation"><ul>' .
 	$content->get('prev_next') . '</ul></nav><nav class="breadcrumbs" role="navigation">' .
-	$content->get('breadcrumbs') . '</nav>');
+	$content->get('breadcrumbs') . '</nav><span id="warning">' . $content->get('warning') . '</span>');
 
 /*
  * Store the URL for the containing structural unit.
