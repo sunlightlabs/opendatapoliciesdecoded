@@ -1,4 +1,4 @@
-<!-- Jackson, MS 2014 -->
+<!-- Jackson, MS 2015 -->
 <!-- Open Data Policies for Sunlight Foundation -->
 <!-- StateDecoded XML Examples: http://docs.statedecoded.com/xml-format.html-->
 
@@ -7,8 +7,8 @@
     <structure>
         <unit label="section" identifier="jacksonms" level="1">Jackson, MS </unit>
     </structure>
-    <section_number>Jackson, MS (2014)</section_number> <!--citystateyear, no spaces-->
-    <catch_line>Legislation (2014)</catch_line>
+    <section_number>Jackson,MS(2015)</section_number> <!--citystateyear, no spaces-->
+    <catch_line>Executive Order (2015)</catch_line>
     <text>
 <!--insert text of the policy below this line  -->
 
@@ -19,8 +19,9 @@
 <history>
 <!-- put Notes/resolution/executive order/refernces history in this area. (Adopted on, council votes, date passed etc) --> 
 
-Enacted: 2014; Link: http://www.openjackson.org/policy; Means: Legislation
-
+Enacted: 2015;
+Link: http://web.archive.org/web/20150910063345/http://www.jacksonms.gov/CivicAlerts.aspx?AID=443; 
+Means: Executive Order
 
 </history>
     <!--<metadata></metadata>-->
