@@ -183,7 +183,7 @@ else
 
 $content->set('heading', '<nav class="prevnext" role="navigation"><ul>' .
 	$content->get('prev_next') . '</ul></nav><nav class="breadcrumbs" role="navigation">' .
-	$content->get('breadcrumbs') . '</nav>' . $content->get('warning'));
+	$content->get('breadcrumbs') . '</nav><span id="warning">' . $content->get('warning') . '</span>');
 
 /*
  * Store the URL for the containing structural unit.
