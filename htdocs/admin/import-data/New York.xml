@@ -1,4 +1,4 @@
-<!-- New York, York, 2013 -->
+<!-- New York, NY, 2012 -->
 <!-- Open Data Policies for Sunlight Foundation -->
 <!-- StateDecoded XML Examples: http://docs.statedecoded.com/xml-format.html-->
 
@@ -7,8 +7,8 @@
     <structure>
         <unit label="section" identifier="newyorkny" level="1">New York,NY</unit>
     </structure>
-    <section_number>New York,NY(2013)</section_number> <!--citystateyear, no spaces-->
-    <catch_line>Executive Order (2013)</catch_line>
+    <section_number>NewYork,NY(2012)</section_number> <!--citystateyear, no spaces-->
+    <catch_line>Local Law (2012)</catch_line>
     <text>
 <!--insert text of the policy below this line  -->
 
@@ -19,7 +19,7 @@
 <history>
 <!-- put Notes/resolution/executive order/refernces history in this area. (Adopted on, council votes, date passed etc) --> 
 
-Enacted: 2013; Link: http://www.governor.ny.gov/executiveorder/95; Means: Executive Order
+Enacted: 2012; Link: http://www1.nyc.gov/site/doitt/initiatives/open-data-law.page; Means: Local Law
 
 
 </history>
