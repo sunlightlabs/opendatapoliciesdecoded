@@ -54,7 +54,11 @@ $content->set('body',
 				right now.</p>
 
 				<p>This site is powered by <a href="http://www.statedecoded.com/">The State
-				Decoded</a>.</p>
+				Decoded</a>. Check out this project
+				<a href="https://github.com/sunlightlabs/opendatapoliciesdecoded">on GitHub</a> and
+				feel free to <a href="https://github.com/sunlightlabs/opendatapoliciesdecoded/issues">
+				open an issue</a> or <a href="https://github.com/sunlightlabs/opendatapoliciesdecoded/pulls">
+				submit a pull request</a>!</p>
 
 			</section> <!-- // .feature -->
 
