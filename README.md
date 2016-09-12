@@ -32,7 +32,7 @@ Project documentation can be found at [docs.statedecoded.com](http://docs.stated
 
 ## How to help
 * Use Open Data Policies Decoded sites and share your feedback in the form of [filing issues](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues)—suggestions for new features, notifications of bugs, etc.
-* Write or edit documentation on [the wiki](https://github.com/Open Data Policiesdecoded/Open Data Policiesdecoded/wiki).
+* Write or edit documentation on [the wiki](https://github.com/sunlightlabs/opendatapoliciesdecoded/wiki).
 * Read through [unresolved issues](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues) and comment on those on which you have something to add, to help resolve them.
 * Contribute code to [fix bugs or add features](https://github.com/sunlightlabs/opendatapoliciesdecoded/issues).
 * Comb through [existing code](https://github.com/sunlightlabs/opendatapoliciesdecoded) to clean it up—standardizing code formatting, adding docblocks, or editing/adding comments.
